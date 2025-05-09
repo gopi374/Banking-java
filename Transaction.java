@@ -17,6 +17,6 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return accountNumber + "--" + description;
+        return accountNumber + "," + description;
     }
 }

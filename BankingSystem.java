@@ -71,7 +71,9 @@ public class BankingSystem {
             System.out.println("2. Withdraw");
             System.out.println("3. Check Balance");
             System.out.println("4. View Transactions");
-            System.out.println("5. Logout");
+            System.out.println("5. Send Payment"); // New option
+            System.out.println("6. Logout"); 
+
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
 
@@ -117,9 +119,35 @@ public class BankingSystem {
                     }
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("👋 Logging out...");
                     return;
+
+                case 5: // Send Payment
+                    System.out.print("Enter recipient's account number: ");
+                    String recipientAccNum = scanner.next();
+
+                    Account recipientAccount = accounts.get(recipientAccNum);
+                    if (recipientAccount == null) {
+                        System.out.println("❌ Recipient account not found.");
+                        break;
+                    }
+
+                    System.out.print("Enter amount to send: ");
+                    double paymentAmount = scanner.nextDouble();
+
+                    if (account.withdraw(paymentAmount)) {
+                        recipientAccount.deposit(paymentAmount);
+
+                        // Log transactions for both sender and recipient
+                        Bank.logTransaction(new Transaction(accNum, "Payment Sent: -" + paymentAmount + " to " + recipientAccNum));
+                        Bank.logTransaction(new Transaction(recipientAccNum, "Payment Received: +" + paymentAmount + " from " + accNum));
+
+                        System.out.println("✅ Payment of " + paymentAmount + " sent to " + recipientAccount.getName());
+                    } else {
+                        System.out.println("❌ Insufficient funds. Payment failed.");
+                    }
+                    break;
 
                 default:
                     System.out.println("❌ Invalid option. Try again.");
