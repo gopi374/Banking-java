@@ -1,4 +1,4 @@
-🏦 Java Console Banking System
+🏦 Java Console Banking System -- Terminal based
 A simple terminal-based banking system built using Core Java , allowing users to create an account, log in with a PIN, and perform basic banking operations like deposit, withdrawal, balance inquiry, and transaction history viewing.
 
 ✅ Features
@@ -14,6 +14,8 @@ Check Balance
 1.View current account balance.
 Transaction History
 1.See a list of all past transactions (deposits and withdrawals).
+Sent payments
+1. In this you can transfer the funds.
 
 🛠️ Technologies Used
 Java (Core)
