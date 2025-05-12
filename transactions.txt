@@ -17,3 +17,6 @@ ACC723477--Withdraw: -1035.0
 ACC723477,Payment Sent: -20.0 to ACC450558
 ACC450558,Payment Received: +20.0 from ACC723477
 ACC723477,Deposit: +2000.0
+ACC723477,Withdraw: -399.99
+ACC723477,Payment Sent: -2.35 to ACC45403
+ACC45403,Payment Received: +2.35 from ACC723477
